@@ -11,6 +11,7 @@
     background-color: #f2f2f2;
     height: 335px;
     border: 2px solid #000000;
+    overflow: hidden;
 }
 
 #middle {
@@ -20,6 +21,7 @@
     padding: 36px;
     box-sizing: border-box;
     border: 2px solid #000000;
+    position: relative;
 }
 
 #right {
@@ -27,6 +29,14 @@
     height: 335px;
     background-color: #00006a;
     border: 2px solid #000000;
+}
+
+
+#clock {
+    height: 196px;
+    position: relative;
+    top: 20px;
+    left: 20px;
 }
 
 
@@ -47,14 +57,14 @@
 }
 
 #screen_header_left {
-    width: 40%;
+    width: 45%;
     float: left;
     text-align: left;
     font-size: 32px;
 }
 
 #screen_header_right {
-    width: 60%;
+    width: 55%;
     float: right;
     text-align: right;
     font-size: 32px;
@@ -137,3 +147,138 @@
 .oh_no {
     color: #ff0000;
 }
+
+
+#klok {
+    position: relative;
+    width: 196px;
+    height: 196px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: inset 0 2.5px 25px rgba(0,0,0,0.3), inset 0 0 51px 51px rgba(0,0,200,0.05);
+  
+    opacity: 0;
+    transition: all 0.2s;
+
+    margin: 16px auto;
+  }
+
+  body.loaded #klok {
+    opacity: 1;
+  }
+  
+    #wijzer-uur,
+    #wijzer-min,
+    #wijzer-sec {
+      position: absolute;
+      z-index: 3;
+      top: 50%;
+      left: 50%;
+      margin-left: -3.8px;
+      width: 7.6px;
+    }
+  
+    body.loaded #wijzer-uur,
+    body.loaded #wijzer-min,
+    body.loaded #wijzer-sec {
+      transition: transform 1s;
+    }
+  
+    #wijzer-uur,
+    #wijzer-min {
+      background: #00006a;
+      border-radius: 0 0 3.8px 3.8px;
+    }
+  
+    #wijzer-uur,
+    #wijzer-min,
+    #wijzer-sec .line,
+    #wijzer-sec .circle {
+      box-shadow: -25px 13px 25px rgba(0,0,0,0.1);
+    }
+  
+    #wijzer-uur {
+      margin-top: -13px;
+      height: 76px;
+  
+      transform-origin: 3.8px 13px;
+    }
+  
+    #wijzer-min {
+      margin-top: -25px;
+      height: 109px;
+  
+      transform-origin: 3.8px 25px;
+    }
+  
+    #wijzer-sec {
+      margin-top: -13px;
+      height: 102px;
+  
+      transform-origin: 3.8px 13px;
+  
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+      #wijzer-sec:before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        width: 5px;
+        height: 5px;
+        background: #990000;
+        border-radius: 5px;
+      }
+      #wijzer-sec .line {
+        background: #990000;
+        width: 2.5px;
+        height: 38px;
+      }
+      #wijzer-sec .line:first-child {
+        height: 51px;
+      }
+      #wijzer-sec .line:last-child {
+        height: 25px;
+        border-bottom-left-radius: 255px;
+        border-bottom-right-radius: 255px;
+      }
+      #wijzer-sec .circle {
+        border: 2.5px solid #990000;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+      }
+  
+    #minuten {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+    }
+      #minuten .minuut {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -7.6px;
+        margin-top: -1.3px;
+        width: 15px;
+        height: 3.8px;
+  
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      #minuten .minuut:before {
+        content: "";
+        display: block;
+        background: #00006a;
+        width: 2.5px;
+        height: 2.5px;
+        border-radius: 7.6px
+      }
+      #minuten .minuut:nth-child(5n+1):before {
+        width: 15px;
+        height: 7.6px;
+      }
